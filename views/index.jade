@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  body
+    p.
+      Agregar un producto #[a(href="addProduct") addProduct] 
+    p.
+      Eliminar un producto #[a(href="removeProduct") deleteProduct]
+    p.
+      Modificar un producto #[a(href="modifyProduct") modifyProduct]
