@@ -3,4 +3,15 @@ extends layout
 block content
   h1= title
   body
-    p Hello
+    form(action="/resultAdd" method="POST")
+      div(class="form-group")
+        label(for="nameProduct") Nombre del producto 
+        input(type="text" name="nameProduct" placeholder="Nombre del producto" id="nameProduct" class="form-control")
+      div(class="form-group")
+        label(for="descriptionProduct") Descripcion del producto 
+        input(type="text" name="descriptionProduct" placeholder="Descripcion del producto" id="descriptionProduct" class="form-control")
+      div(class="form-group")
+        label(for="costProduct") Precio del producto 
+        input(type="text" name="costProduct" placeholder="Precio del producto" id="costProduct" class="form-control")
+      div
+        input(type="submit" value="Agregar producto" class="btn btn-info")
