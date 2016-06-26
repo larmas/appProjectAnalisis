@@ -36,4 +36,15 @@ router.post('/resultAdd', function(req, res) {
   });
 });
 
+router.post('/resultRemove', function(req, res) {
+  var deleteProduct = Product.findOne({nameProduct: req.body.nameProduct},function(err,docs){
+  });
+  deleteProduct.remove(function(err){
+	if(err){
+		console.log(String(err));
+	}
+	res.render('result', {title: 'Producto eliminado correctamente'});
+  });
+});
+
 module.exports = router;

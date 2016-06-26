@@ -1,11 +1,13 @@
 extends layout
 
 block content
-  h1= title
+  div(class="cold-md-8 remove-float center-block text-center big-top-space")
+    h1= title
   body
-    p.
-      Agregar un producto #[a(href="addProduct") addProduct] 
-    p.
-      Eliminar un producto #[a(href="removeProduct") removeProduct]
-    p.
-      Modificar un producto #[a(href="modifyProduct") modifyProduct]
+    div(class="cold-md-6 remove-float center-block text-center big-top-space")
+      p.
+        Agregar un producto #[a(href="addProduct") addProduct] 
+      p.
+        Eliminar un producto #[a(href="removeProduct") removeProduct]
+      p.
+        Modificar un producto #[a(href="modifyProduct") modifyProduct]
