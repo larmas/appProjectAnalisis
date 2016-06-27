@@ -9,6 +9,19 @@ h1 {
 	color: #A6FF00;
 	font:  100px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+h2 {
+	text-decoration: underline;
+	color: #B60606;
+	font:  50px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+	text-decoration: underline;
+	color: #A6FF00;
+	font:  50px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
 label {
 	color: #FFFFFF;
 }

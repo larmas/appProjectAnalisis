@@ -31,41 +31,42 @@ router.post('/resultAdd', function(req, res) {
   newProduct.save(function(err){
 	if(err){
 		console.log(String(err));
+		res.render('result', {titleError: String(err)})
 	}
-	res.render('result', {title: 'Producto agregado correctamente'});
+	else{
+		res.render('result', {titleCorrect: 'Producto agregado correctamente'});
+	}
   });
 });
 
 router.post('/resultRemove', function(req, res) {
-  var deleteProduct = Product.findOne({nameProduct: req.body.nameProduct},function(err,docs){
-  });
-  deleteProduct.remove(function(err){
-	if(err){
-		console.log(String(err));
-	}
-	res.render('result', {title: 'Producto eliminado correctamente'});
-  });
-});
-
-router.get('/resultModify', function(req, res){
-	var conditions = {nameProduct: req.body.nameProduct}, 
-	updates = { $set: {nameProduct: req.body.newNameProduct, descriptionProduct: req.body.newDescriptionProduct, costProduct: req.body.newCostProduct}};
-  	
-  	
-  	Product.update(conditions, updates, function(err, numAffected){
+  	var deleteProduct = Product.findOne({nameProduct: req.body.nameProduct},function(err,docs){
+	  	console.log(JSON.stringify(docs));
+		deleteProduct.remove(function(err){
 		if(err){
 			console.log(String(err));
 		}
-		res.render('result', {title: 'Producto modificado correctamente'});
-		//res.send(numAffected);
+		else{
+			res.render('result', {titleCorrect: 'Producto eliminado correctamente'});
+		}
+		});
+  	});
+});
+
+router.post('/resultModify', function(req, res){
+	var conditions = {nameProduct: req.body.nameProduct},
+  	updates = {$set: {
+		nameProduct: req.body.newNameProduct, 
+		descriptionProduct: req.body.newDescriptionProduct, 
+		costProduct: req.body.newCostProduct
+	}};
+  	
+  	Product.update(conditions, updates, function(err){
+		if(err){
+			console.log(String(err));
+		}
+		res.render('result', {titleCorrect: 'Producto modificado correctamente'});
   	})
-  	/*Product.findOne(conditions, function(err,doc){
-  		doc.nameProduct= req.body.newNameProduct;
-  		doc.descriptionProduct= req.body.newDescriptionProduct;
-  		doc.costProduct= req.body.newCostProduct;
-  		doc.save();
-  		res.render('result', {title: 'Producto modificado correctamente'});
-  	});*/
 });
 
 module.exports = router;
