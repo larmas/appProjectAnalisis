@@ -47,18 +47,17 @@ router.post('/resultRemove', function(req, res) {
   });
 });
 
-router.post('/resultModify', function(req, res){
+router.get('/resultModify', function(req, res){
 	var conditions = {nameProduct: req.body.nameProduct}, 
-	updates = { $set: {nameProduct: req.body.newNameProduct, descriptionProduct: req.body.newDescriptionProduct, costProduct: req.body.newCostProduct}},
-	options = {multi: false};
+	updates = { $set: {nameProduct: req.body.newNameProduct, descriptionProduct: req.body.newDescriptionProduct, costProduct: req.body.newCostProduct}};
   	
   	
-  	Product.update(conditions, updates, options, function(err, numAffected){
+  	Product.update(conditions, updates, function(err, numAffected){
 		if(err){
 			console.log(String(err));
 		}
-		//res.render('result', {title: 'Producto modificado correctamente'});
-		res.send(numAffected);
+		res.render('result', {title: 'Producto modificado correctamente'});
+		//res.send(numAffected);
   	})
   	/*Product.findOne(conditions, function(err,doc){
   		doc.nameProduct= req.body.newNameProduct;

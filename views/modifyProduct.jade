@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   body
-    form(action="/resultModify" method="POST")
+    form(action="/resultModify" method="GET")
       div(class="form-group")
         label(for="NameProduct") Nombre del producto a modificar
         input(type="text" name="NameProduct" placeholder="Nombre del producto a modificar" id="NameProduct" class="form-control")
