@@ -3,18 +3,19 @@ extends layout
 block content
   h1= title
   body
-    form(action="/resultAdd" method="POST")
-      div(class="form-group")
-        label(for="nameProduct") Nombre del producto 
-        input(type="text" name="nameProduct" placeholder="Nombre del producto" id="nameProduct" class="form-control")
-      div(class="form-group")
-        label(for="descriptionProduct") Descripcion del producto 
-        input(type="text" name="descriptionProduct" placeholder="Descripcion del producto" id="descriptionProduct" class="form-control")
-      div(class="form-group")
-        label(for="costProduct") Precio del producto 
-        input(type="text" name="costProduct" placeholder="Precio del producto" id="costProduct" class="form-control")
-      div(class="top-space")
-        input(type="submit" value="Agregar producto" class="btn btn-info")
-    form(action="/" method="GET")
-      div(class="top-space")
-        input(type="submit" value="Atras" class="btn btn-info")
+    div(class="col-md-6 remove-float center-block big-top-space text-left")
+      form(action="/resultAdd" method="POST")
+        div(class="form-group")
+          label(for="nameProduct") Nombre del producto 
+          input(type="text" name="nameProduct" placeholder="Nombre del producto" id="nameProduct" class="form-control")
+        div(class="form-group")
+          label(for="descriptionProduct") Descripcion del producto 
+          input(type="text" name="descriptionProduct" placeholder="Descripcion del producto" id="descriptionProduct" class="form-control")
+        div(class="form-group")
+          label(for="costProduct") Precio del producto 
+          input(type="text" name="costProduct" placeholder="Precio del producto" id="costProduct" class="form-control")
+        div(class= "row top-botton-space")  
+          div(class="col-sm-6")
+            input(style="color:#000000" type="submit" value="Agregar producto" class="btn btn-info top-botton-space")
+          div(class="col-sm-6 text-right")
+            input(style="color:#000000" type="button" onclick="location.href='/'" value="Atras" class="btn btn-info top-botton-space left-space")

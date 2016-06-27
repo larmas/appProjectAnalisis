@@ -35,12 +35,24 @@ p {
   color: #FFFFFF;
 }
 
-.top-space{
-	margin-top: 1.5px;
+.fondo{
+  	background-image: url("/images/background.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: 1366px 768px ;
+}
+
+.top-botton-space{
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .right-space{
 	margin-right: 1em;
+}
+
+.left-space{
+	margin-left: 1em;
 }
 
 .remove-float{

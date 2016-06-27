@@ -1,13 +1,19 @@
 extends layout
 
 block content
-  div(class="cold-md-8 remove-float center-block text-center big-top-space")
-    h1= title
+  h1= title
   body
-    div(class="cold-md-8 remove-float center-block text-center big-top-space")
-      p.
-        Agregar un producto #[a(href="addProduct") addProduct] 
-      p.
-        Eliminar un producto #[a(href="removeProduct") removeProduct]
-      p.
-        Modificar un producto #[a(href="modifyProduct") modifyProduct]
+    div(class="remove-float center-block text-center big-top-space")
+      p Agregar un producto
+      form(action="/addProduct" method="GET")
+        div
+          input(style="color:#000000" type="submit" value="Agregar producto" class="btn btn-info top-botton-space")
+      p Modificar un producto
+      form(action="/modifyProduct" method="GET")
+        div
+          input(style="color:#000000" type="submit" value="Modificar producto" class="btn btn-info top-botton-space")
+      p Eliminar un producto
+      form(action="/removeProduct" method="GET")
+        div
+          input(style="color:#000000" type="submit" value="Eliminar producto" class="btn btn-info top-botton-space")
+        
