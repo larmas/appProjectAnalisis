@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1= title  
   body
     div(class="remove-float center-block text-center big-top-space")
       p Agregar un producto
@@ -16,4 +16,4 @@ block content
       form(action="/removeProduct" method="GET")
         div
           input(style="color:#000000" type="submit" value="Eliminar producto" class="btn btn-info top-botton-space")
-        
+            
