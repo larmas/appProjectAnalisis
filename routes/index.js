@@ -47,4 +47,26 @@ router.post('/resultRemove', function(req, res) {
   });
 });
 
+router.post('/resultModify', function(req, res){
+	var conditions = {nameProduct: req.body.nameProduct}, 
+	updates = { $set: {nameProduct: req.body.newNameProduct, descriptionProduct: req.body.newDescriptionProduct, costProduct: req.body.newCostProduct}},
+	options = {multi: false};
+  	
+  	
+  	Product.update(conditions, updates, options, function(err, numAffected){
+		if(err){
+			console.log(String(err));
+		}
+		//res.render('result', {title: 'Producto modificado correctamente'});
+		res.send(numAffected);
+  	})
+  	/*Product.findOne(conditions, function(err,doc){
+  		doc.nameProduct= req.body.newNameProduct;
+  		doc.descriptionProduct= req.body.newDescriptionProduct;
+  		doc.costProduct= req.body.newCostProduct;
+  		doc.save();
+  		res.render('result', {title: 'Producto modificado correctamente'});
+  	});*/
+});
+
 module.exports = router;
