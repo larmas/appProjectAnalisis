@@ -27,8 +27,13 @@ router.get('/register',function(req, res){
 	res.render('register', {title: 'Registrar usuario'})
 });
 
-router.get('login',function(req, res){
-	res.render('login', {title: 'Iniciar sesion'})
+router.get('/login',function(req, res){
+	if(!req.session.user){
+		res.render('login', {title: 'Iniciar sesion'});
+	}
+	else{
+		res.redirect('/');
+	}	
 });
 
 router.post('/resultAdd', function(req, res) {
@@ -66,7 +71,23 @@ router.post('/resultRegister', function(req,res){
 });
 
 router.post('/resultLogin', function(req, res){
-
+	console.log('Name : ' + req.body.userName);
+	console.log('Pass : ' + req.body.password);
+	if(!req.session.user){		//if there is no session opened
+		User.findOne({userName:req.body.userName, password:req.body.password}, function(err, userf) {
+			if(err){			//tries to find the user with the entered data 
+				throw err;
+			}else if (userf){
+				console.log('User found in data base');
+				req.session.user = new User({userName:req.body.userName, password:req.body.password});
+				res.redirect('/');
+			}else{
+				res.render('result', {titleError: 'Datos incorrectos'});
+			}
+		});
+	}else{
+		res.redirect('/');
+	}
 });
 
 router.post('/resultRemove', function(req, res) {

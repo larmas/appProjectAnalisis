@@ -1,3 +1,18 @@
 extends layout
 
 block content
+	h1= title
+	body
+		div(class="col-md-6 remove-float center-block big-top-space text-left")
+  		form(action="/resultRegister" method="POST")
+  			div(class="form-group")
+        	label(for="nameUser") Nombre de usuario
+        	input(type="text" name="nameUser" placeholder="Nombre de usuario" id="nameUser" class="form-control")
+        div(class="form-group")
+        	label(for="password") Contraseña
+        	input(type="password" name="password" placeholder="Contraseña" id="password" class="form-control")
+        div(class= "row top-botton-space")  
+          div(class="col-sm-6")
+            input(style="color:#000000" type="submit" value="Registrarme" class="btn btn-info top-botton-space")
+          div(class="col-sm-6 text-right")
+            input(style="color:#000000" type="button" onclick="location.href='/'" value="Atras" class="btn btn-info top-botton-space left-space")
